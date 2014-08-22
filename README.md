@@ -1,4 +1,4 @@
-ddp_analysis_slides
-===================
+Developing Data Products Presentation
+=====================================
 
-Slides for Developing Data Analysis Project
+This repository contains materials for the presentations for the Developing Data Analysis Project.
