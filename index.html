@@ -51,6 +51,7 @@
 <li> No one wants to get pay less than what you are entitled to </li>
 <li> How to find out the market range? </li>
 <li> What factors that might influence my remuneration? </li>
+<li> Knowing the market will give you more power to negotiate your remuneration</li>
 </ul>
 
 <p>=&gt; SEA provides you a facility to quickly find out your worths in the market, and
@@ -71,10 +72,7 @@
 <li>The data set contains 3000 observations with 12 variables:</li>
 </ul>
 
-<pre><code class="r">library(ISLR); data(Wage); dim(Wage); names(Wage)
-</code></pre>
-
-<pre><code>## [1] 3000   12
+<pre><code class="r">library(ISLR); data(Wage); names(Wage)
 </code></pre>
 
 <pre><code>##  [1] &quot;year&quot;       &quot;age&quot;        &quot;sex&quot;        &quot;maritl&quot;     &quot;race&quot;      
@@ -101,16 +99,15 @@
   </hgroup>
   <article data-timings="">
     <ul>
-<li>SEA uses Linear Regression model to analyse the common variables collected in <code>Wage</code> data set in order to estimate salary level: 
+<li>SEA uses Linear Regression model to analyse the common variables collected in <code>Wage</code> data set: <em>Year of Birth</em>, <em>Education Level</em>, <em>Job Area</em>, <em>Ethnic Background</em>, <em>Marital Status</em>, and <em>Health</em>.</li>
+</ul>
+
+<pre><code class="r"># Fit Linear Regression Model 
+wageModel &lt;- glm(wage ~ year + age + maritl + race + education + jobclass + health + health_ins, data = Wage)
+</code></pre>
 
 <ul>
-<li><i>Year of Birth</i>, <i>Education Level</i>, <i>Job Area</i>, <i>Ethnic Background</i>, <i>Marital Status</i>, and <i>Health</i>.</li>
-</ul></li>
-<li>User Interfaces: 
-
-<ul>
-<li><a href="http://shiny.rstudio.com/">Shiny</a> is used to build SEA to enable instantly reactivity with user interactions on the application.</li>
-</ul></li>
+<li>User Interfaces: <a href="http://shiny.rstudio.com/">Shiny</a> is used to build SEA to enable instantly reactivity to user interactions.</li>
 <li>As a value of one of the above features changed, SEA will try to predict the salary level again:</li>
 </ul>
 

@@ -18,6 +18,7 @@ knit        : slidify::knit2slides
 <li> No one wants to get pay less than what you are entitled to </li>
 <li> How to find out the market range? </li>
 <li> What factors that might influence my remuneration? </li>
+<li> Knowing the market will give you more power to negotiate your remuneration</li>
 </ul>
 
 => SEA provides you a facility to quickly find out your worths in the market, and
@@ -32,11 +33,7 @@ knit        : slidify::knit2slides
 - The data set contains 3000 observations with 12 variables:
 
 ```r
-library(ISLR); data(Wage); dim(Wage); names(Wage)
-```
-
-```
-## [1] 3000   12
+library(ISLR); data(Wage); names(Wage)
 ```
 
 ```
@@ -53,12 +50,17 @@ library(ISLR); data(Wage); dim(Wage); names(Wage)
 
 ## What does SEA do? (cont.)
 
-- SEA uses Linear Regression model to analyse the common variables collected in <code>Wage</code> data set in order to estimate salary level: 
-  + <i>Year of Birth</i>, <i>Education Level</i>, <i>Job Area</i>, <i>Ethnic Background</i>, <i>Marital Status</i>, and <i>Health</i>.
-- User Interfaces: 
-  + [Shiny](http://shiny.rstudio.com/) is used to build SEA to enable instantly reactivity with user interactions on the application.
-- As a value of one of the above features changed, SEA will try to predict the salary level again:
+- SEA uses Linear Regression model to analyse the common variables collected in <code>Wage</code> data set: *Year of Birth*, *Education Level*, *Job Area*, *Ethnic Background*, *Marital Status*, and *Health*.
 
+
+
+```r
+# Fit Linear Regression Model 
+wageModel <- glm(wage ~ year + age + maritl + race + education + jobclass + health + health_ins, data = Wage)
+```
+
+- User Interfaces: [Shiny](http://shiny.rstudio.com/) is used to build SEA to enable instantly reactivity to user interactions.
+- As a value of one of the above features changed, SEA will try to predict the salary level again:
 
 
 ```r
